@@ -1,0 +1,26 @@
+{
+  "discounts": [
+    {
+      "id": "67a1",
+      "name": "рол тижня",
+      "title": "50% знижки на  \"Рол тижня\"",
+      "description": "Щотижня діє знижка 50% на один з ролів у нашому меню.\n“Рол тижня” ви можете знайти на головній сторінці нашого сайту.\nЗнижка діє при мінімальній сумі замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fimgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg?alt=media&token=468cefd3-458e-4a31-a41d-a76d7e0d2be0"
+    },
+    {
+      "id": "91ae",
+      "name": " 3+1=5",
+      "title": "\"3+1=5",
+      "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fimgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg?alt=media&token=9b9e3314-83cb-4f07-94a0-948500168c0b"
+    }
+  ],
+  "categories": [
+    {
+      "id": "148c",
+      "name": "роли",
+      "path": "roli",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
+    }
+  ]
+}

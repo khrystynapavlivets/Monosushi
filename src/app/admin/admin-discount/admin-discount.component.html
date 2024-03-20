@@ -1,0 +1,84 @@
+<div class="container-fluid d-flex flex-column  my-2 mx-5">
+    <div class="">
+        <button class="btnAddDiscountForm m-3 fw-bold" type="button" (click)="toggleAddDiscountForm()">ДОДАТИ
+            АКЦІЮ</button>
+        @if (!addDiscountForm) {
+        <div class="p-3">
+            <form [formGroup]="discountForm" (ngSubmit)="addDiscount()">
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="my-3" style="width: 48%;">
+                        <input formControlName="name" name="name" class="form-control" placeholder="*Назва" required>
+                    </div>
+                    <div class="my-3" style="width: 48%;">
+                        <input formControlName="title" name="title" class="form-control" placeholder="*Заголовок"
+                            required>
+                    </div>
+                </div>
+                <div class="mb-3">
+
+                    <textarea formControlName="description" name="description" class="form-control" placeholder="*Опис"
+                        required></textarea>
+                </div>
+                @if (!isUploaded) {
+                <div class="mb-3">
+                    <input class="form-control" type="file" (change)="upload($event)" required>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" [style.width.%]="uploadPercent"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                }
+
+                @if (isUploaded) {
+                <img [src]="valueByControl('imagePath')" alt="">
+                <button type="button" class="btn  fw-bold" [ngStyle]="{ 'background-color': primaryColor}"
+                    (click)="deleteImage()">ВИДАЛИТИ</button>
+                }
+
+                <button [disabled]="discountForm.invalid" type="button" class="btn fw-bold my-3 w-100"
+                    [ngStyle]="{ 'background-color': primaryColor}" (click)="addDiscount()">{{editStatus ? 'ЗБЕРЕГТИ' :
+                    'ДОДАТИ'}}</button>
+
+            </form>
+        </div>
+        }
+        <div class=" my-5 " style="display: grid; place-items: center; width: 100%;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Назва</th>
+                        <th scope="col">Заголовок</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Картинка</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (discount of adminDiscounts; track discount.id ) {
+                    <tr>
+                        <td>{{ currentDate | date:'dd.MM.YY' }}</td>
+                        <td>{{ discount.name }}</td>
+                        <td>{{ discount.title }}</td>
+                        <td>
+                            {{ discount.description | slice:0:70 }}
+                            <span *ngIf="discount.description.length > 70">...</span>
+                        </td>
+                        <td>
+                            <img [src]="discount.imagePath" alt="" height="50px">
+                        </td>
+                        <td>
+                            <button (click)="editDiscount(discount)" type="button" class="btn btnEdDel fw-bold"
+                                [style]="{ 'color': primaryColor }" style="color: primaryColor ;">РЕДАГУВАТИ</button>
+                            <button [disabled]="editStatus" [style.cursor]="editStatus ? 'not-allowed' : 'pointer'"
+                                [style]="{ 'color': primaryColor }" (click)="deleteDiscount(discount)" type="button"
+                                class="btn btnEdDel fw-bold">ВИДАЛИТИ</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

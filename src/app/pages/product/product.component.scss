@@ -1,0 +1,19 @@
+@import '../../shared/styles/variables';
+
+* {
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+
+}
+.card-body{
+    text-align: center;
+
+}
+.text-center {
+    padding: 15px;
+    width: 165px;
+    border-top: 5px solid $primary;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 3rem;
+}
