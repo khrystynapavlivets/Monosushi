@@ -22,5 +22,39 @@
       "path": "roli",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
     }
+  ],
+  "products": [
+    {
+      "id": "3e21",
+      "category": {
+        "id": "148c",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
+      },
+      "name": "Філадельфія з лососем",
+      "path": "roli",
+      "description": "Риc, крем сир, огірок, лосось",
+      "weight": "280",
+      "price": 325,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg?alt=media&token=df866142-a704-43a3-8c2a-ac1cebca7aea",
+      "count": 1
+    },
+    {
+      "id": "43a3",
+      "category": {
+        "id": "148c",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
+      },
+      "name": "Фелікс з лососем – 50%",
+      "path": "roli",
+      "description": "Рис, крем сир, авокадо, салат айсберг, кунжут, лосось, спайсі соус",
+      "weight": "300",
+      "price": 175,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2F5.-feliks-z-lososem.jpg?alt=media&token=b0b28de5-efa8-4c1c-826f-e9a5fa7b66fc",
+      "count": null
+    }
   ]
 }
