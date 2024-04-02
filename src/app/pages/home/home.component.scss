@@ -47,7 +47,7 @@
     line-height: 1.2em;
 
     b {
-        color: $main;
+        color: $primary;
     }
 }
 
@@ -62,7 +62,7 @@
 .btns {
     border-radius: 10px;
     border: $border;
-    background-color: $main;
+    background-color: $primary;
     transition: 0.35s;
 
     padding: 16px 44px;
@@ -79,7 +79,7 @@
 
 .after-banner {
     padding: 40px 0;
-    background-color: $main;
+    background-color: $primary;
 }
 
 .container {
@@ -121,7 +121,7 @@
 
 .btn-secondary:hover {
     color: $text_main;
-    background: $main;
+    background: $primary;
 }
 
 .after-banner-info {
@@ -154,10 +154,130 @@
 
 
 .more-text {
-    color: $main;
+    color: $primary;
 
 }
 
 .spacer-120 {
     height: 120px;
+}
+.card-body {
+    text-align: center;
+
+}
+
+.text-center {
+    padding: 15px;
+    width: 270px;
+    height: 80px;
+    border-top: 5px solid $primary;
+    margin: 50px auto 30px;
+    font-weight: bold;
+    font-size: 3.1rem;
+}
+
+.nav-item {
+    padding: 10px 26.5px;
+    background-color: white;
+    border: 1px solid lightgray;
+    transition: 0.35s;
+    border-radius: 0%;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    .nav-link {
+        color: black;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.active {
+    box-sizing: border-box;
+    background-color: white;
+    border-top: 3px solid $primary;
+    font-weight: bold;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.product_image-wrap {
+
+    width: 300px;
+    height: 173px;
+}
+
+.card-text {
+    max-width: 271.1px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: start;
+    font-size: 16px;
+    line-height: 1.5em;
+    position: relative;
+
+    .product_size {
+        position: absolute;
+
+    }
+}
+
+.thumb-input-number {
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    color: #252525;
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .product-qty {
+        width: 45px;
+        height: 30px;
+        text-align: center;
+        border: none;
+    }
+
+    .decrement,
+    .increment {
+        width: 28px;
+        margin: 2px;
+        font-size: 30px;
+        background: none;
+        -webkit-transition: 0.35s;
+        transition: 0.35s;
+        font-size: 24px;
+        line-height: 24px;
+        color: #5a5a5a;
+        background-color: #fff;
+        border: none;
+        padding-bottom: 2px;
+        margin: 4px;
+    }
+
+    .add-to-cart-btn {
+        width: 75px;
+        height: 24px;
+    }
+
+}
+
+.product_price {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.card-text {
+    height: 51px;
 }

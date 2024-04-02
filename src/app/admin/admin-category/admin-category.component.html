@@ -1,9 +1,9 @@
-<div class="container-fluid d-flex flex-column  my-2 mx-5  ">
-    <div class="   ">
+<div class="container-fluid d-flex flex-column   ">
+    <div>
         <button class="btnAddCategoryForm  fw-bold" type="button" (click)="toggleAddCategoryForm()">ДОДАТИ
             КАТЕГОРІЮ</button>
         @if (!addCategoryForm) {
-        <div class=" p-3">
+        <div class=" py-3">
             <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
                 <div class="d-flex flex-row justify-content-between">
                     <div class="my-3" style="width: 48%;">
@@ -28,13 +28,13 @@
                 }
 
                 @if (isUploaded) {
-                <img [src]="valueByControl('imagePath')" alt="">
-                <button type="button" class="btn  fw-bold" [ngStyle]="{ 'background-color': primaryColor}"
+                <img [src]="valueByControl('imagePath')" width="100px" class="m-3" alt="">
+                <button type="button" class="btn  fw-bold " [ngStyle]="{ 'background-color': primaryColor}"
                     (click)="deleteImage()">ВИДАЛИТИ</button>
                 }
 
                 <button [disabled]="categoryForm.invalid || !isUploaded" [ngStyle]="{ 'background-color': primaryColor}"
-                    type="submit" class="btn fw-bold my-3 w-100">
+                    type="submit" class="btn fw-bold my-3 w-100 border-0 btnSaveAdd">
                     {{ editStatus ? 'ЗБЕРЕГТИ' : 'ДОДАТИ' }}
 
                 </button>
@@ -46,7 +46,7 @@
             <table class="table ">
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 10%">#</th>
+                        <th scope="col" style="width: 10%">№</th>
                         <th scope="col" style="width: 20%;">НАЗВА</th>
                         <th scope="col" style="width: 40%;">ШЛЯХ</th>
                         <th scope="col" style="width: 20%;">КАРТИНКА</th>

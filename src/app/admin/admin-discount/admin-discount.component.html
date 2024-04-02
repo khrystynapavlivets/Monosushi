@@ -1,9 +1,9 @@
-<div class="container-fluid d-flex flex-column  my-2 mx-5">
+<div class="container-fluid d-flex flex-column ">
     <div class="">
-        <button class="btnAddDiscountForm m-3 fw-bold" type="button" (click)="toggleAddDiscountForm()">ДОДАТИ
+        <button class="btnAddDiscountForm fw-bold" type="button" (click)="toggleAddDiscountForm()">ДОДАТИ
             АКЦІЮ</button>
         @if (!addDiscountForm) {
-        <div class="p-3">
+        <div class="py-3">
             <form [formGroup]="discountForm" (ngSubmit)="addDiscount()">
                 <div class="d-flex flex-row justify-content-between">
                     <div class="my-3" style="width: 48%;">
@@ -30,8 +30,8 @@
                 }
 
                 @if (isUploaded) {
-                <img [src]="valueByControl('imagePath')" alt="">
-                <button type="button" class="btn  fw-bold" [ngStyle]="{ 'background-color': primaryColor}"
+                <img [src]="valueByControl('imagePath')" width="100px"  class="m-3" alt="">
+                <button type="button" class="btn  fw-bold " [ngStyle]="{ 'background-color': primaryColor}"
                     (click)="deleteImage()">ВИДАЛИТИ</button>
                 }
 

@@ -1,23 +1,19 @@
-<div class="container mt-3 mb-3">
+<div class="container mt-3 my-5 mb-3">
+    <div class="card-body">
+        <h1 class="text-center title">АКЦІЇ</h1>
+    </div>
     <div class="row">
-        @if(userDiscounts.length > 0){
         @for( discount of userDiscounts;track $index)
         {
         <div class="col-6 mt-3">
             <div class="card w-100">
                 <img [src]="discount.imagePath" class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <a class="btn btn-warning">Детальніше</a>
-                </div>
+                <h5 class="text-center fs-3 mt-3 fw-bolder">{{discount.name}}</h5>
+                <hr>
+                <button class="btn-info text-center">
+                    Дізнатись більше
+                </button>
             </div>
-        </div>
-        }
-        }
-        @if(userDiscounts.length === 0){
-       <div class="card-body">
-            <b>
-                <h1 class="text-center">АКЦІЇ</h1>
-            </b>
         </div>
         }
     </div>

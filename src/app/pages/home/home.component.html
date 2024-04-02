@@ -63,76 +63,83 @@
     </div>
 </div>
 <div class="spacer-30"></div>
-<!-- <section>
-    <div class="container">
-        <div class="product-wraper">
-            <div class="row justify-content-center"> -->
-              <!-- <ng-container>
-                <div class="categories-menu">
-                        <ul class="categories-list">
-                            <li class="categories-list-item active">
-                                <a>Всі</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a> Філадельфія</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a>Каліфорнія</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a>Запечені</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a>Фірмові</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a>Преміум</a>
-                            </li>
-                            <li class="categories-list-item ">
-                                <a>Макі</a>
-                            </li>
-                        </ul>
-                    </div>
-            </ng-container>  -->
-           <!-- <div class="col-md-6 col-lg-4 col-xl-3"> -->
-                    <!-- <ng-container>
-                        <div class="product">
-                            <div class="product-image-wrap">
-                                <a class="product-image">
-                                    <img class="img ">
-                                </a>
-                            </div>
-                            <div class="product-title-wrap">
-                                <div class="product-title m-auto">
-                                    <a>
+<section>
+    <div class="card-body mt-3 my-5">
+        <h1 class="text-center">Продукти</h1>
 
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-desc">
-                                <p></p>
-                                <div class="product-size"><span></span> г</div>
-                            </div> -->
-                            <!-- <div class="product-controls">
-                                <div class="product-price">
-                                    <b></b> грн
-                                </div>
-                                <div class="thumb-input-number">
-                                    <button type="button">-</button>
-                                    <input type="tex" readonly max="99">
-                                    <button type="button">+</button>
-                                </div>
-                                <button class="btn-order">
-                                    Замовити
-                                </button>
-                            </div> -->
-                        <!-- </div> -->
-                    <!-- </ng-container> -->
-                <!-- </div> 
+
+        <div class="container">
+            <div class="row  d-flex flex-column justify-content-evenly align-content-center">
+                <ul class="nav nav-pills  categories-menu  d-flex flex-row  align-content-centerи no-gutters">
+                    <li class="nav-item active d-flex flex-column align-items-center">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active"
+                            data-id="20,21,37,38,52,15">Всі</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active" data-id="20">Роли
+                            Філадельфія</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active" data-id="21">Роли
+                            Каліфорнія</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active"
+                            data-id="37">Запечені
+                            Роли</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active"
+                            data-id="38">Фірмові
+                            Суші</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active"
+                            data-id="52">Преміум
+                            Суші</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active" data-id="15">Роли
+                            Макі</a>
+                    </li>
+                </ul>
             </div>
-        </div> -->
-    <!-- </div> -->
-<!-- </section> -->
+        </div>
+
+        <div class="row mx-2 my-3">
+            @for( product of userProducts;track $index)
+            {
+            <div class="col-3 mt-3" style="width: 23rem; ">
+                <div class="card  px-2 " style="height: 29rem;"><a href="" class="text-black"
+                        style="text-decoration: none;">
+                        <div class="product_image-wrap my-5 mx-2"><img [src]="product.imagePath" class="card-img-top"
+                                alt="..."></div>
+                        <div class="product_title title h5 m-auto "><b>{{product.name}}</b></div>
+                        <div class="product_desc my-3 d-flex flex-row align-items-baseline justify-content-between">
+                            <p class="fs-6 card-text">{{product.description}}</p>
+                            <div class="product_size mb-2"><b><span class="size">{{product.weight}}</span> г</b></div>
+                        </div>
+                        <div class="product_controls d-flex flex-row justify-content-evenly align-content-center mb-3">
+
+                            <div class="product_price" itemprop="price"><b
+                                    class="price"><span>{{product.price}}</span></b> <span> грн</span></div>
+
+                            <div class="thumb-input-number">
+                                <button type="button" class="decrement">-</button>
+                                <input value="1" readonly="" class="product-qty" tabindex="-1" max="99">
+                                <button type="button" class="increment">+</button>
+                            </div>
+                            <button class="btn btn-small btn-primary order-btn add-to-cart-btn"
+                                data-id="42968">Замовити</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
 <div class="spacer-90"></div>
 <div class="info-block">
     <div class="container">
@@ -158,6 +165,9 @@
                                 Дізнатись більше
                             </div>
                         </div>
+
+
+
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                                 <p><strong>Чому ми?</strong></p>

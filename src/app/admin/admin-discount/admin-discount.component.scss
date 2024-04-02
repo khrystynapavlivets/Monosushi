@@ -1,9 +1,13 @@
 @import '../../shared/styles/variables';
+@import '../../shared/styles/maxins';
 
 .btnAddDiscountForm {
     width: 198px;
     height: 40px;
-    background-color: $primary;
+    background-color: white;
     border-radius: 5px;
     border: $border;
+    &:hover {
+        background-color: $primary;
+    }
 }

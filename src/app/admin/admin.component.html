@@ -2,15 +2,16 @@
     <div class="nav  nav-pills my-5 ms-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <div class="nav  nav-pills  d-flex flex-column " id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <button class="nav-link" [routerLink]="[ 'discount' ]" routerLinkActive="active"
-                type="button">Discount</button>
+                type="button">Акції</button>
             <button class="nav-link" [routerLink]="[ 'category' ]" routerLinkActive="active"
-                type="button">Category</button>
+                type="button">Категорії</button>
             <button class="nav-link" [routerLink]="[ 'product' ]" routerLinkActive="active"
-                type="button">Product</button>
-            <button class="nav-link" [routerLink]="[ 'order' ]" routerLinkActive="active" type="button">Order</button>
-            <button class="btn-out my-3" (click)="logOut()" type="button"> ВИХІД </button>
+                type="button">Продукти</button>
+            <button class="nav-link" [routerLink]="[ 'order' ]" routerLinkActive="active"
+                type="button">Замовлення</button>
+            <button class="btn-out my-3" (click)="logOut()" type="button"><b>ВИХІД</b></button>
         </div>
-        <div class="tab-content ms-5 my- ps-5  w-75 d-flex flex-column" id="v-pills-tabContent">
+        <div class="tab-content ms-5  ps-5  w-75 d-flex flex-column" id="v-pills-tabContent">
             <router-outlet></router-outlet>
         </div>
     </div>
