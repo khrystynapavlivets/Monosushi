@@ -8,6 +8,7 @@ import { ICategoryResponse } from '../../shared/interfaces/category/category.int
 import { CategoryService } from '../../shared/services/category/category.service';
 import { ProductService } from '../../shared/services/product/product.service';
 import { ImageService } from '../../shared/services/image/image.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-product',

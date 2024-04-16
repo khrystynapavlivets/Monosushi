@@ -1,1 +1,27 @@
-<p>discount-info works!</p>
+<div class="container">
+    <ul class="my-3  breadcrumbs d-flex flex-row" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+        <a class="mx-1" itemprop="item" routerLink="/"><span itemprop="name">Головна</span></a>
+        <li class="mx-3" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a class="mx-1"
+                itemprop="item" routerLink="/discount"><span itemprop="name">Акції</span></a></li>
+        <li class="active" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span
+                class="mx-1" itemprop="name">Рол тижня</span></li>
+    </ul>
+
+    <div class="card border-0 d-flex  justify-content-center m-auto" style="width: 715px;">
+        <div class="img text-uppercase d-flex align-items-center justify-content-center">
+            <h3>{{discount.title}}</h3>
+        </div>
+        <div class="card-body   my-4">
+            <ul>
+                <ng-container *ngFor="let sentence of discount.description.split('.'); let i = index">
+                    <li class="card-text">
+                        <p class="card-text-dest" *ngIf="i !== discount.description.split('.').length -1">{{ sentence
+                            }}.</p>
+                        <p class="card-text-dest" *ngIf="i === discount.description.split('.').length -1">{{ sentence
+                            }}.</p>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>

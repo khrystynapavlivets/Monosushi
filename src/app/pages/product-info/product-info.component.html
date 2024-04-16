@@ -1,1 +1,42 @@
-<p>product-info works!</p>
+<div class="container">
+
+    <ul class="my-3  breadcrumbs d-flex flex-row" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+        <a class="mx-1" itemprop="item" routerLink="/"><span itemprop="name">Головна</span></a>
+        <li class="mx-3" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a class="mx-1"
+                itemprop="item" [routerLink]="['/product/'+currentProduct.category.path]"><span
+                    itemprop="name">{{currentProduct.category.name | titlecase }}</span></a></li>
+        <li class="active me-3" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span
+                class="mx-1" itemprop="itemListElement">Філадельфія</span></li>
+        <li class="active" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span
+                class="mx-1" itemprop="name">{{currentProduct.name}}</span></li>
+    </ul>
+
+
+    <div class="col-10 my-5 m-auto card border-0">
+        <div class="row gx-5 justify-content-center align-items-center">
+            <div class="col-md-4   my-5 ">
+                <img [src]="currentProduct.imagePath" class="img-fluid " [alt]="currentProduct.name">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body px-0">
+                    <h2 class="card-title fs-1 pb-3">{{ currentProduct.name }}</h2>
+                    <p class="card-text"> <b>Склад: </b>{{ currentProduct.description }}</p>
+                    <p class="card-text"><b>Вага</b>: {{ currentProduct.weight }} г</p>
+                    <div class="btn-group d-flex  justify-content-between align-content-center ">
+                        <h4 class="card-title mt-1 me-4">
+                            {{ currentProduct.price * currentProduct.count }} грн
+                        </h4>
+                        <div class="border  rounded" style="display: flex; align-items: center;padding: 1.5px 0">
+                            <button (click)="productCount(currentProduct, false)" type="button" class="btn">-</button>
+                            <input class="form-control text-center mx-2 border-0" type="text"
+                                [value]="currentProduct.count" style="width: 40px;">
+                            <button (click)="productCount(currentProduct, true)" type="button" class="btn">+</button>
+                        </div>
+
+                        <a class="btn btn-small  rounded order-btn  mx-4 fs-6"
+                            (click)="addToBasket(currentProduct)">ЗАМОВИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

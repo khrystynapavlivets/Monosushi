@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row  d-flex flex-column justify-content-evenly align-content-center">
             <ul class="nav nav-pills  categories-menu  d-flex flex-row  align-content-centerи no-gutters">
-                <li class="nav-item active d-flex flex-column align-items-center">
+                <li class="nav-item active">
                     <a class="nav-link" routerLink="/product/info" routerLinkActive="route-active"
                         data-id="20,21,37,38,52,15">Всі</a>
                 </li>
@@ -40,19 +40,23 @@
     <div class="row mx-2 my-3">
         @for( product of userProducts;track $index)
         {
-        <div class="col-3 mt-3" style="width: 23rem; ">
-            <div class="card  px-2 " style="height: 29rem;"><a href="" class="text-black" style="text-decoration: none;">
-                    <div class="product_image-wrap my-5 mx-2"><img [src]="product.imagePath" class="card-img-top"
-                            alt="..."></div>
-                    <div class="product_title title h5 m-auto "><b>{{product.name}}</b></div>
+        <div class="col-4 mt-3 mx-0 px-2" style="width: 22.2rem;height: 29rem; ">
+            <div class="card mt-3   px-2 "><a style="text-decoration: none;">
+                    <div class="product_image-wrap m-auto my-5"><img
+                            [routerLink]="['/product/'+product.path, product.id ]" [src]="product.imagePath"
+                            class="card-img-top" alt="..."></div>
+                    <div class="product_title title h5 m-auto " [routerLink]="['/product/'+product.path, product.id ]">
+                        <b>{{product.name}}</b>
+                    </div>
                     <div class="product_desc my-3 d-flex flex-row align-items-baseline justify-content-between">
                         <p class="fs-6 card-text">{{product.description}}</p>
                         <div class="product_size mb-2"><b><span class="size">{{product.weight}}</span> г</b></div>
                     </div>
                     <div class="product_controls d-flex flex-row justify-content-evenly align-content-center mb-3">
 
-                        <div class="product_price"
-                            itemprop="price"><b class="price"><span>{{product.price}}</span></b> <span> грн</span></div>
+                        <div class="product_price" itemprop="price"><b class="price"><span>{{product.price}}</span></b>
+                            <span> грн</span>
+                        </div>
 
                         <div class="thumb-input-number">
                             <button type="button" class="decrement">-</button>

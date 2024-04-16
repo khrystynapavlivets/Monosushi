@@ -161,9 +161,15 @@
 .spacer-120 {
     height: 120px;
 }
+
 .card-body {
     text-align: center;
 
+    img {
+        width: 300px;
+        height: 190px;
+        object-fit: contain;
+    }
 }
 
 .text-center {
@@ -205,9 +211,15 @@
 }
 
 .product_image-wrap {
-
     width: 300px;
-    height: 173px;
+    height: 190px;
+    cursor: pointer;
+    transition: transform .4s ease-in-out;
+
+    &:hover{
+        transform: translate(0px, 10%);
+        transition: transform .4s ease-in-out;
+    }
 }
 
 .card-text {
@@ -215,7 +227,7 @@
     display: inline-block;
     vertical-align: middle;
     text-align: start;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5em;
     position: relative;
 
@@ -223,6 +235,8 @@
         position: absolute;
 
     }
+
+   
 }
 
 .thumb-input-number {

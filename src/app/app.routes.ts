@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 import { DiscountComponent } from './pages/discount/discount.component';
 import { DiscountInfoComponent } from './pages/discount-info/discount-info.component';
@@ -30,13 +31,20 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 
 
-
+import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discount', component: DiscountComponent },
+  { path: 'discount/:id', component: DiscountInfoComponent },
   { path: 'product/:category', component: ProductComponent },
+  {
+    path: 'product/:category/:id', component: ProductInfoComponent, resolve: {
+      productInfo: ProductInfoResolver
+    }
+  },
+
   { path: 'delivery', component: DeliveryComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'about', component: AboutComponent },
@@ -56,7 +64,7 @@ export const routes: Routes = [
   },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes), HttpClientModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule.forRoot(routes), HttpClientModule, ReactiveFormsModule,ToastrModule.forRoot()],
   providers: [FormsModule],
   exports: [RouterModule, RouterLinkActive]
 })

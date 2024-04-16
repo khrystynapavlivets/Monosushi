@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscountService } from '../../shared/services/discount/discount.service';
-// import { IDiscount } from '../../shared/interfaces/discount/discount.interface';
 import { CommonModule } from '@angular/common';
 import {
   FormsModule,

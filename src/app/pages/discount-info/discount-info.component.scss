@@ -1,0 +1,54 @@
+@import '../../shared/styles/variables';
+
+div.img{
+	width: 715px;
+	height: 180px;
+	background-color: #b5d8f7;
+	border-radius: 10px;
+}
+
+h3{
+	padding-top: 10px;
+	border-top: 5px solid black;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.card-text {
+    position: relative;
+}
+ul{
+font-size: 0.8rem;
+}
+
+ul  a{
+text-decoration: none;
+color: $secondary_text;
+text-decoration: none;
+transition: .35s;
+cursor: pointer;
+&:hover{
+    color: $text_main;
+}
+}
+.card-text-dest::after{
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    left: -17px;
+    top: 6px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    background: transparent;
+    content: "";
+}
+
+.card-text-dest::before{
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    left: -18px;
+    top: 5px;
+    border-radius: 100%;
+    background: #b5d8f7;
+    content: "";
+}

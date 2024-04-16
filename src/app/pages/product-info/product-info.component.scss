@@ -1,0 +1,50 @@
+@import '../../shared/styles/variables';
+
+ul {
+    font-size: 0.8rem;
+}
+
+ul a {
+    text-decoration: none;
+    color: $secondary_text;
+    text-decoration: none;
+    transition: .35s;
+    cursor: pointer;
+
+    &:hover {
+        color: $text_main;
+    }
+}
+
+.card {
+    .card-text b {
+        color: $primary;
+
+    }
+
+
+    .img {
+        width: 430px;
+        height: 200px;
+        object-fit: scale-down;
+        cursor: pointer;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .order-btn {
+            border: 2px solid #b5d8f7;
+            background-color: $primary;
+            padding: 12px 10px;
+            width: 50px;
+            font-size: 14px;
+            line-height: 14px;
+
+        }
+
+    }
+}

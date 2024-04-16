@@ -1,39 +1,57 @@
 {
   "discounts": [
     {
-      "id": "67a1",
+      "id": "1",
       "name": "рол тижня",
       "title": "50% знижки на  \"Рол тижня\"",
-      "description": "Щотижня діє знижка 50% на один з ролів у нашому меню.\n“Рол тижня” ви можете знайти на головній сторінці нашого сайту.\nЗнижка діє при мінімальній сумі замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
+      "description": "Щотижня діє знижка 50% на один з ролів у нашому меню.\n“Рол тижня” ви можете знайти на головній сторінці нашого сайту.\nЗнижка діє при мінімальній сумі замовлення 300 грн.\nЦя акція не поєднується з іншими акціями",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fimgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg?alt=media&token=468cefd3-458e-4a31-a41d-a76d7e0d2be0"
     },
     {
-      "id": "91ae",
+      "id": "2",
       "name": " 3+1=5",
       "title": "\"3+1=5",
-      "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями.",
+      "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fimgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg?alt=media&token=9b9e3314-83cb-4f07-94a0-948500168c0b"
     }
   ],
   "categories": [
     {
-      "id": "148c",
+      "id": "1",
       "name": "роли",
-      "path": "roli",
+      "path": "rolls",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
+    },
+    {
+      "id": "2",
+      "name": "сети",
+      "path": "setu",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=51caa737-6b38-4b9b-8bad-3a4b2a2e3ae7"
+    },
+    {
+      "id": "3",
+      "name": "напої",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=9b50f013-9a56-4557-bda9-81e351b528a5"
+    },
+    {
+      "id": "4",
+      "name": "соуси",
+      "path": "sauces",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Ficon.svg?alt=media&token=23168d11-92ff-4300-a54a-040b0fbea597"
     }
   ],
   "products": [
     {
-      "id": "3e21",
+      "id": "1",
       "category": {
-        "id": "148c",
+        "id": "1",
         "name": "роли",
-        "path": "roli",
+        "path": "rolls",
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
       },
       "name": "Філадельфія з лососем",
-      "path": "roli",
+      "path": "philadelphia",
       "description": "Риc, крем сир, огірок, лосось",
       "weight": "280",
       "price": 325,
@@ -41,9 +59,57 @@
       "count": 1
     },
     {
-      "id": "43a3",
+      "id": "2",
       "category": {
-        "id": "148c",
+        "id": "2",
+        "name": "сети",
+        "path": "setu",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=51caa737-6b38-4b9b-8bad-3a4b2a2e3ae7"
+      },
+      "name": "Сет Філадельфія",
+      "path": "philadelphia-set",
+      "description": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "weight": "1070",
+      "price": 1150,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled%20(1).jpg?alt=media&token=075c2185-4339-4466-971b-9b71c081c783",
+      "count": 1
+    },
+    {
+      "id": "3",
+      "category": {
+        "id": "3",
+        "name": "напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=9b50f013-9a56-4557-bda9-81e351b528a5"
+      },
+      "name": "Pepsi",
+      "path": "coca-cola",
+      "description": " ",
+      "weight": " 0.33",
+      "price": 35,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fpepsicola%20(1).jpg?alt=media&token=79616ed9-0ccf-4228-b6d0-4bf180362561",
+      "count": 1
+    },
+    {
+      "id": "4",
+      "category": {
+        "id": "4",
+        "name": "соуси",
+        "path": "sauces",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Ficon.svg?alt=media&token=23168d11-92ff-4300-a54a-040b0fbea597"
+      },
+      "name": "Імбир",
+      "path": "imbyr",
+      "description": "Імбир, 30 г",
+      "weight": "30",
+      "price": 20,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2F3333.png?alt=media&token=60668d38-6b72-426d-b5e2-81b15f6d8ca1",
+      "count": 1
+    },
+    {
+      "id": "5",
+      "category": {
+        "id": "1",
         "name": "роли",
         "path": "roli",
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
@@ -54,7 +120,7 @@
       "weight": "300",
       "price": 175,
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2F5.-feliks-z-lososem.jpg?alt=media&token=b0b28de5-efa8-4c1c-826f-e9a5fa7b66fc",
-      "count": null
+      "count": 1
     }
   ]
 }
