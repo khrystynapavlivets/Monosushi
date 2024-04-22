@@ -1,0 +1,6 @@
+@import '../../shared/styles/variables';
+
+.header {
+    width: 500px;
+    @extend %logoHeader;
+}

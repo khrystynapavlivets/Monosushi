@@ -32,6 +32,9 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 
 
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { AuthorizationComponent } from './pages/authorization/authorization.component';
 
 
 export const routes: Routes = [
@@ -53,8 +56,9 @@ export const routes: Routes = [
   { path: 'partners', component: PartnersComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'checkout', component: CheckoutComponent },
-  {
-    path: 'admin', component: AdminComponent, children: [
+  { path: 'auth', component: AuthorizationComponent },
+  { path: 'cabinet', component: CabinetComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'discount', component: AdminDiscountComponent },
@@ -64,7 +68,7 @@ export const routes: Routes = [
   },
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes), HttpClientModule, ReactiveFormsModule,ToastrModule.forRoot()],
+  imports: [CommonModule, RouterModule.forRoot(routes), HttpClientModule, ReactiveFormsModule, ToastrModule.forRoot()],
   providers: [FormsModule],
   exports: [RouterModule, RouterLinkActive]
 })

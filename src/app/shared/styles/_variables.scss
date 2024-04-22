@@ -1,8 +1,15 @@
 $primary: #b5d8f7;
-
-
 $text_main: #252525;
-$secondary_text:#5a5a5a;
-$main_font:'RotondaC';
-$main_font_Bold:'RotondaC_Bold';
+$secondary_text: #5a5a5a;
+$main_font: 'RotondaC';
+$main_font_Bold: 'RotondaC_Bold';
 $border: 2px solid #b5d8f7;
+
+%logoHeader {
+    border-top: 7px solid $primary;
+    margin: 50px auto 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    padding: 10px 5px;
+    text-align: center;
+}

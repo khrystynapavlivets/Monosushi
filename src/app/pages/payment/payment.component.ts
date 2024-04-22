@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProductsResponse } from '../../shared/interfaces/product/product.interface';
 
 @Component({
   selector: 'app-payment',

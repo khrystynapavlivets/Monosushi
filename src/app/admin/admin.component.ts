@@ -14,7 +14,10 @@ import { CommonModule } from '@angular/common';
 
 })
 export class AdminComponent implements OnInit {
-  constructor(private router: Router, public accountService: AccountService) { }
+  constructor(
+    private router: Router,
+    public accountService: AccountService
+  ) { }
 
   ngOnInit(): void {
   }

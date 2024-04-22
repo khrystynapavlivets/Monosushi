@@ -66,16 +66,17 @@ header {
 
         &__count {
             background-color: #ffffff;
-            padding: 0.2rem 0.4rem;
+            padding: 0.2rem 0.2rem;
             font-size: 15px;
             position: absolute;
             bottom: 48px;
-            left: 45px;
-            border-radius: 120%;
+            left: 44px;
+            border-radius: 100%;
         }
 
         &__basket {
-            height: 100px;
+            height: 160px;
+
         }
     }
 
@@ -143,14 +144,27 @@ header {
             width: 150px;
             height: 70px;
             object-fit: contain;
+            cursor: pointer;
+            transition: filter 0.3s;
+            &:hover {
+       
+                // filter: brightness(105%);
+                filter: opacity(70%);
+            }
         }
 
         .title-basket {
             width: 200px;
+            cursor: pointer;
 
             .title {
                 text-decoration: none;
                 color: black;
+                transition: .35s;
+
+                &:hover {
+                    color: $primary;
+                }
             }
         }
 
@@ -159,11 +173,19 @@ header {
             width: 100px;
             border: 2px solid #b5d8f7;
 
-            button {
+            .decrement, .increment  {
+                border-radius: 4px;
                 background-color: transparent;
+                &:hover{
+                    background-color:$primary; 
+                }
             }
         }
-
+        .remove-product {
+            margin-top: 28px;
+            width: 40px;
+        }
+      
         #cart-submit,
         .btn {
             background-color: $primary;

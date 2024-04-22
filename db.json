@@ -122,5 +122,21 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2F5.-feliks-z-lososem.jpg?alt=media&token=b0b28de5-efa8-4c1c-826f-e9a5fa7b66fc",
       "count": 1
     }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "qwerty123",
+      "fullName": "Petro Petriv",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "qwerty123",
+      "fullName": "Pavlo Pavliv",
+      "role": "USER"
+    }
   ]
 }
