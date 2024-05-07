@@ -1,0 +1,93 @@
+@use '@angular/material' as mat;
+@import 'variables';
+@import 'mixins';
+@import 'font';
+
+// change default style MATERIAL
+
+$primary-default-value: (
+  50: #FAD4B8,
+  100: #FAD4B8,
+  200: #FAD4B8,
+  300: #EC6603,
+  400: #EC6603,
+  500: #EC6603,
+  600: #EC6603,
+  700: #F3B484,
+  800: #F3B484,
+  900: #F3B484,
+  contrast: (50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white)
+);
+
+$warn-default-value: (
+  50: #EB5757,
+  100: #EB5757,
+  200: #EB5757,
+  300: #EB5757,
+  400: #EB5757,
+  500: #EB5757,
+  600: #EB5757,
+  700: #EB5757,
+  800: #EB5757,
+  900: #EB5757,
+  contrast: (50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white)
+);
+
+
+$my-theme: (
+  color: (primary: mat.define-palette($primary-default-value, 500, 100, 700),
+    accent: mat.define-palette(mat.$brown-palette, A200, A100, A400),
+    warn: mat.define-palette($warn-default-value)),
+  density: 0 // Set density (default: 0)
+);
+@include mat.core();
+
+
+
+.dialog-back {
+  background-color: rgba(0, 0, 0, 0.701);
+}
+
+.auth-dialog {
+  width: 500px;
+  min-height: 500px;
+}
+
+.basket-info {
+  position: absolute;
+  right: 0;
+  width: 730px;
+  max-height: calc(100vh - 95px);
+  top: 103px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  font-family: $main_font;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.phone {
+  width: 800px;
+  min-height: 500px;
+}

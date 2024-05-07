@@ -39,7 +39,7 @@ export class AdminCategoryComponent {
     private fb: FormBuilder,
     private categoryService: CategoryService,
     private storage: Storage
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initCategoryForm();

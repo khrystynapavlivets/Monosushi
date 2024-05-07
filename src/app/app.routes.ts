@@ -8,6 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
+// import { MatDialogModule } from '@angular/material/dialog';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 import { DiscountComponent } from './pages/discount/discount.component';
 import { DiscountInfoComponent } from './pages/discount-info/discount-info.component';
 import { ProductComponent } from './pages/product/product.component';
@@ -36,6 +40,8 @@ import { AuthGuard } from './shared/guards/auth/auth.guard';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
 
+// import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
+import { SharedModule } from './shared/shared.module';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -58,7 +64,8 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'auth', component: AuthorizationComponent },
   { path: 'cabinet', component: CabinetComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
+  {
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'discount', component: AdminDiscountComponent },
@@ -68,8 +75,15 @@ export const routes: Routes = [
   },
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes), HttpClientModule, ReactiveFormsModule, ToastrModule.forRoot()],
+  imports: [CommonModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    SharedModule],
   providers: [FormsModule],
-  exports: [RouterModule, RouterLinkActive]
+  exports: [RouterModule,
+    RouterLinkActive,
+    SharedModule]
 })
 export class AppRoutingModule { }

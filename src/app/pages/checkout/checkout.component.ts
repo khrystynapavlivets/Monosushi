@@ -20,7 +20,7 @@ export class CheckoutComponent {
 
 
   ngOnInit(): void {
-    this.loadBasked();
+    // this.loadBasked();
     this.updateBasket();
   }
 

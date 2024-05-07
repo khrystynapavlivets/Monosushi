@@ -30,14 +30,13 @@
                 }
 
                 @if (isUploaded) {
-                <img [src]="valueByControl('imagePath')" width="100px"  class="m-3" alt="">
-                <button type="button" class="btn  fw-bold " [ngStyle]="{ 'background-color': primaryColor}"
+                <img [src]="valueByControl('imagePath')" width="100px" class="m-3" alt="">
+                <button type="button" class="btn  fw-bold " [style.backgroundColor]="primaryColor"
                     (click)="deleteImage()">ВИДАЛИТИ</button>
                 }
 
                 <button [disabled]="discountForm.invalid" type="button" class="btn fw-bold my-3 w-100"
-                    [ngStyle]="{ 'background-color': primaryColor}" (click)="addDiscount()">{{editStatus ? 'ЗБЕРЕГТИ' :
-                    'ДОДАТИ'}}</button>
+                    [style.backgroundColor]="primaryColor" (click)="addDiscount()">{{editStatus ? 'ЗБЕРЕГТИ' :  'ДОДАТИ'}}</button>
 
             </form>
         </div>
@@ -62,7 +61,10 @@
                         <td>{{ discount.title }}</td>
                         <td>
                             {{ discount.description | slice:0:70 }}
-                            <span *ngIf="discount.description.length > 70">...</span>
+
+                            @if(discount.description.length > 70){
+                            <span>...</span>
+                            }
                         </td>
                         <td>
                             <img [src]="discount.imagePath" alt="" height="50px">

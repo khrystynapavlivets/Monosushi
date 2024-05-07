@@ -1,4 +1,6 @@
 @import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
 
 * {
     box-sizing: border-box;
@@ -9,7 +11,7 @@
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1003;
     background-color: #ffffff;
 
 
@@ -146,8 +148,8 @@ header {
             object-fit: contain;
             cursor: pointer;
             transition: filter 0.3s;
+
             &:hover {
-       
                 // filter: brightness(105%);
                 filter: opacity(70%);
             }
@@ -173,19 +175,22 @@ header {
             width: 100px;
             border: 2px solid #b5d8f7;
 
-            .decrement, .increment  {
+            .decrement,
+            .increment {
                 border-radius: 4px;
                 background-color: transparent;
-                &:hover{
-                    background-color:$primary; 
+
+                &:hover {
+                    background-color: $primary;
                 }
             }
         }
+
         .remove-product {
             margin-top: 28px;
             width: 40px;
         }
-      
+
         #cart-submit,
         .btn {
             background-color: $primary;

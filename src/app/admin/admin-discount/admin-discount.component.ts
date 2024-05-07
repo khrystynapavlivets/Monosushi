@@ -43,7 +43,7 @@ export class AdminDiscountComponent implements OnInit {
     private discountService: DiscountService,
     private fb: FormBuilder,
     private storage: Storage
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initDiscountForm();
