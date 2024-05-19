@@ -8,37 +8,18 @@ import { AccountService } from '../../shared/services/account/account.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
 import { Router } from '@angular/router';
-
-import { MatMenuTrigger } from '@angular/material/menu';
-
-import {
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-} from '@angular/material/dialog';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
 import { ILogin } from '../../shared/interfaces/account/account.interface';
 import { BasketDialogComponent } from '../basket-dialog/basket-dialog.component';
-
-
-
-
-
-
-
-
-
+import { PhoneDialogComponent } from "../phone-dialog/phone-dialog.component";
+import { SharedModule } from "../../shared/shared.module";
 
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, RouterOutlet, CommonModule, MatSlideToggleModule],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet, CommonModule, MatSlideToggleModule, SharedModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -52,13 +33,6 @@ export class HeaderComponent {
   public isLogin = false;
   public loginUrl = '';
   public loginPage = '';
-
-  // public menuOpen = false;
-  // public basketOpen = false;
-  // public basketEmpty = true;
-
-  // public menuUserOpen = false;
-
 
   ngOnInit(): void {
     // this.loadBasket();
@@ -147,35 +121,6 @@ export class HeaderComponent {
     })
   }
 
-  // checkUserLogin(): void {
-  //   const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
-  //   if(currentUser && currentUser.role === ROLE.ADMIN){
-  //     this.isLogin = true;
-  //     this.loginUrl = 'admin';
-  //     this.loginPage = 'Admin';
-  //   } else if(currentUser && currentUser.role === ROLE.USER) {
-  //     this.isLogin = true;
-  //     this.loginUrl = 'cabinet';
-  //     this.loginPage = 'Cabinet';
-  //   } else {
-  //     this.isLogin = false;
-  //     this.loginUrl = '';
-  //     this.loginPage = '';
-  //   }
-  // }
-
-  // checkUpdatesUserLogin(): void {
-  //   this.accountService.isUserLogin$.subscribe(() => {
-  //     // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-  //     this.checkUserLogin();
-  //   });
-  // }
-
-
-  // updateLocalStorage(): void {
-  //   localStorage.setItem('basket', JSON.stringify(this.basket));
-  //   this.getTotalPrice();
-  // }
 
   openModal() {
     this.isOpenBasket = false;
@@ -202,5 +147,11 @@ export class HeaderComponent {
     dialogRef.afterClosed().subscribe(() => {
     });
   }
-
+  openPhoneModal(): void{
+    const dialogRef = this.dialog.open(PhoneDialogComponent, {
+      panelClass: 'phone',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+    });
+  }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IDiscountResponse } from '../../shared/interfaces/discount/discount.interface';
-import { DiscountService } from '../../shared/services/discount/discount.service';
+import { IDiscountResponse } from '../../../shared/interfaces/discount/discount.interface';
+import { DiscountService } from '../../../shared/services/discount/discount.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
 

@@ -7,13 +7,16 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
 
+
+
 const MATERIAL = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
   MatMenuModule,
-  MatIconModule
+  MatIconModule,
+
 ];
 
 import { FormsModule } from '@angular/forms';
@@ -27,14 +30,14 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   exports: [
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [MatMenuTrigger]
 })

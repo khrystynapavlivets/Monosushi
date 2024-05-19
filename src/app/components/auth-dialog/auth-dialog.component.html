@@ -72,7 +72,7 @@
   <div class="form-group-half">
     <mat-form-field style="width: 100%;" appearance="outline" color="primary">
       <mat-label>Пароль</mat-label>
-      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+      <input (input)="checkConfirmedPassword()" formControlName="password" matInput [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)=" hide=!hide">
         <span class="material-symbols-outlined visibility">
           visibility
@@ -84,12 +84,15 @@
   <div class="form-group-half">
     <mat-form-field style="width: 100%;" appearance="outline" color="primary">
       <mat-label>Повторіть пароль</mat-label>
-      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+      <input (input)="checkConfirmedPassword()" formControlName="confirmedPassword" matInput [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)=" hide=!hide">
         <span class="material-symbols-outlined  visibility">
           visibility
           </span></button>
     </mat-form-field>
+      @if (checkVisibilityError('confirmedPassword', 'matchError')){
+          <mat-error >Confirmed password is required</mat-error>
+      }
   </div>
 
   <button mat-raised-button (click)="registerUser()" [disabled]="registerForm.invalid" type="submit"

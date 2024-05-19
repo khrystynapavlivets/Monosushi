@@ -32,6 +32,7 @@
     "iquery": "^0.0.2",
     "jquery": "^3.7.1",
     "json-server": "^1.0.0-alpha.23",
+    "material-design-icons-iconfont": "^6.7.0",
     "ngx-toastr": "^18.0.0",
     "popper": "^1.0.1",
     "query": "^0.2.0",
@@ -52,6 +53,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "3.2.5",
     "typescript": "~5.4.5"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.",

@@ -1,75 +1,116 @@
 @if (isOpenBasket) {
-<div class="overlay" (click)="closePopup()">
-    <div class="popup">
-        <div class="basket-modal-wraper">
-            <div class="cart-popup-out">
-                <div class="cart-items">
-                    @if (basket.length === 0) {
-                    <div class="cart-empty-message">
-                        <div class="cart-empty-img my-2 text-center">
-                            <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/icons/cart-empty-img.svg"
-                                alt="" />
-                        </div>
-                        <div class="title h5 text-center"><b>Кошик порожній</b></div>
-                        <div class="text-center">
-                            <a class="btn"><b>Перейти до каталогу</b></a>
-                        </div>
-                    </div>
-                    } @if (basket.length > 0) {
-                    @for ( product of basket ; track $index)
-                    {
-                    <div
-                        class="prod_horiz cart-product js-product d-flex flex-row justify-content-between align-content-center p-2">
-                        <div>
-                            <a class="prod_horiz-img">
-                                <img class="img" [routerLink]="[
-                          '/product/' + product.category.path,
-                          product.id
-                        ]" [src]="product.imagePath" />
-                            </a>
-                        </div>
-
-                        <div class="title-basket mt-4" [routerLink]="['/product/' + product.category.path, product.id]">
-                            <a class="title">
-                                <b>{{ product.name }}</b>
-                            </a>
-                        </div>
-
-                        <div class="border btn-group rounded mt-3" style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    ">
-                            <button type="button" class="decrement border-0">-</button>
-                            <input class="text-center border-0" type="text" [value]="product.count"
-                                style="width: 40px" />
-                            <button type="button" class="increment border-0">+</button>
-                        </div>
-
-                        <div class="price_default mt-4">
-                            <b class="price">{{ product.price * product.count }}</b>
-                            грн
-                        </div>
-
-                        <button type="button" class="btn-close remove-product me-3">
-                            <div class="trash" (click)="delete(product)"></div>
-                        </button>
-                    </div>
-                    }
-                    }
-
-                    <div class="cart_bottom bg-mono d-flex justify-content-between m-3 mx-4">
-                        <div class="cart_price-wrap fs-5">
-                            Сума:
-                            <b id="card-total-price" class="card-total-price">{{ total }}</b>
-                            грн
-                        </div>
-                        <a routerLink="/checkout" routerLinkActive="route-active" class="btn" id="cart-submit">ОФОРМИТИ
-                            ЗАМОВЛЕННЯ</a>
-                    </div>
-                </div>
-            </div>
+  <div class="basket-info">
+    <div class="basket-modal-wrapper">
+      @if (basket.length === 0) {
+        <div class="cart-empty d-flex flex-column justify-content-center">
+          <div class="cart-empty-img my-2 text-center">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fcart-empty-img.svg?alt=media&token=539f0fbe-4658-4c86-a49b-7c899c72feb8"
+              alt=""
+              class="basket-empty-img mb-4"
+            />
+          </div>
+          <button
+            class="title text-uppercase btn h5 m-auto"
+            mat-dialog-close
+            [routerLink]="['']"
+          >
+            Кошик порожній
+          </button>
         </div>
+      }
+      @if (basket.length > 0) {
+        @for (product of basket; track $index) {
+          <div
+            class="prod_horiz cart-product js-product d-flex flex-row justify-content-between align-content-center p-2"
+          >
+            <div>
+              <a class="prod_horiz-img">
+                <img
+                  class="img"
+                  [routerLink]="[
+                    '/product/' + product.category.path,
+                    product.id
+                  ]"
+                  [src]="product.imagePath"
+                  alt="" fill
+                />
+              </a>
+            </div>
+
+            <div
+              class="title-basket mt-4"
+              [routerLink]="['/product/' + product.category.path, product.id]"
+            >
+              <a class="title">
+                <b>{{ product.name }}</b>
+              </a>
+            </div>
+
+            <div
+              class="border btn-group rounded mt-3"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <button
+                type="button"
+                (click)="productCount(product, false)"
+                class="decrement border-0"
+              >
+                -
+              </button>
+              <input
+                class="text-center border-0"
+                type="text"
+                [value]="
+                  product.count === null || product.count === 0
+                    ? 1
+                    : product.count
+                "
+                readonly
+                style="width: 40px"
+              />
+              <button
+                type="button"
+                (click)="productCount(product, true)"
+                class="increment border-0"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="price_default mt-4">
+              <b class="price">{{ product.price * product.count }}</b>
+              грн
+            </div>
+
+            <button type="button" (click)="delete(product)" class="btn-close remove-product me-3">
+              <div class="trash" ></div>
+            </button>
+          </div>
+        }
+      }
+
+      <div class="cart_bottom bg-mono d-flex justify-content-between m-3 mx-4">
+        <div class="cart_price-wrap fs-5">
+          Сума:
+          <b id="card-total-price" class="card-total-price">{{ total }}</b>
+          грн
+        </div>
+        <button
+          type="button"
+          routerLink="/checkout"
+          routerLinkActive="route-active"
+          class="btn"
+          mat-dialog-close
+          id="cart-submit"
+        >
+          ОФОРМИТИ ЗАМОВЛЕННЯ
+        </button>
+      </div>
     </div>
-</div>
+  </div>
 }

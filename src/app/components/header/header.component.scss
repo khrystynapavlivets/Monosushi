@@ -63,7 +63,7 @@ header {
         width: 150px;
         height: 103px;
         margin-left: 0.5rem;
-        border-radius: 0px;
+        border-radius: 0;
         position: relative;
 
         &__count {
@@ -122,7 +122,7 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
 
-    .basket-modal-wraper {
+    .basket-modal-wrapper {
         position: absolute;
         right: 0;
         width: 730px;
@@ -133,8 +133,8 @@ header {
         background-color: #fff;
         border-radius: 0 0 10px 10px;
         font-family: $main_font;
-        background-color: white;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         z-index: 1000;
 
         .cart-product {

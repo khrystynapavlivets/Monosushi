@@ -25,17 +25,16 @@ export class AdminProductComponent {
   public uploadPercent = 0;
   public isUploaded = false;
   public isOpen = false;
-  // private currentCategoryId = 0;
   private currentProductId = 0;
   public primaryColor = '#b5d8f7';
-  public addProductForm = true;
+
 
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
     private productService: ProductService,
     private imageService: ImageService,
-    // private toastr: ToastrService
+    private toaster: ToastrService
   ) { }
 
 
@@ -79,7 +78,7 @@ export class AdminProductComponent {
         this.loadProduct();
         this.isOpen = false;
         this.editStatus = false;
-        // this.toastr.success('Product successfully updated');
+        this.toaster.success('Product successfully updated');
 
       })
     } else {
@@ -87,8 +86,7 @@ export class AdminProductComponent {
         this.loadProduct();
         this.isOpen = false;
         this.editStatus = false;
-       
-        // this.toastr.success('Product successfully created');
+        this.toaster.success('Product successfully created');
       })
     }
     this.editStatus = false;
@@ -117,7 +115,7 @@ export class AdminProductComponent {
   deleteProduct(product: IProductsResponse): void {
     this.productService.delete(product.id).subscribe(() => {
       this.loadProduct();
-      // this.toastr.success('Product successfully deleted');
+      this.toaster.success('Product successfully deleted');
     })
   }
 
@@ -154,10 +152,4 @@ export class AdminProductComponent {
   toggleOpenForm(): void {
     this.isOpen = !this.isOpen;
   }
-  AddProductForm(): void {
-    this.addProductForm = false;
-  }
-
-
-
 }
