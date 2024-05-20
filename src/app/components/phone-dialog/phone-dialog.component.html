@@ -1,0 +1,41 @@
+<form class="form" [formGroup]="phoneForm">
+  <button class="closeForm" mat-icon-button matTooltip="Basic" mat-dialog-close>
+    <mat-icon><span class="material-symbols-outlined"> close </span></mat-icon>
+  </button>
+
+  <h2>МИ ЗАТЕЛЕФОНУЕМО</h2>
+  <p>Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
+  <div class="form-group">
+    <mat-form-field style="width: 100%" appearance="outline" color="primary">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" class="inputForm" formControlName="name" />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field
+      appearance="outline"
+      color="primary"
+      class="example-full-width"
+    >
+      <mat-label>Ваш телефон</mat-label>
+
+      <input
+        type="tel"
+        matInput
+        formControlName="phoneNumber"
+        placeholder="063 220 22 11"
+      />
+    </mat-form-field>
+  </div>
+
+  <button
+    mat-raised-button
+    (click)="callOrderDialog()"
+    [disabled]="phoneForm.invalid"
+    type="submit"
+    color="primary"
+  >
+    НАДІСЛАТИ
+  </button>
+</form>
