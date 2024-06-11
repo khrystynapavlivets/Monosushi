@@ -36,7 +36,7 @@ export const routes: Routes = [
   {
     path: "product/:category/:id",
     component: ProductInfoComponent,
-    resolve: { productInfo: ProductInfoResolver },
+    resolve: {  productInfo: ProductInfoResolver  },
   },
 
   { path: "delivery", component: DeliveryComponent },
@@ -68,7 +68,8 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () =>
       import("./admin/admin.module").then((m) => m.AdminModule),
-  },
+  }
+
 ];
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ export const routes: Routes = [
     SharedModule,
   ],
   providers: [],
+
   exports: [RouterModule, RouterLinkActive, SharedModule],
 })
 export class AppRoutingModule {}

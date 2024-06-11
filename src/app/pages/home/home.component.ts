@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IProductsResponse } from '../../shared/interfaces/product/product.interface';
 import { ProductService } from '../../shared/services/product/product.service';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DiscountService } from '../../shared/services/discount/discount.service';
 import { IDiscountResponse } from '../../shared/interfaces/discount/discount.interface';
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-home',

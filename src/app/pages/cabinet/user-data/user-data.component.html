@@ -40,9 +40,9 @@
         <h2>Адреси</h2>
     </div>
     @if (isAddress){
-        <div class="form-group">
+        <div class="form-group my-3">
             <mat-form-field appearance="outline" color="primary">
-                <mat-label>*Ваша Адреса</mat-label>
+                <mat-label>*Ваш email</mat-label>
                 <input formControlName="address"
                      matInput type="text">
             </mat-form-field>
@@ -50,10 +50,10 @@
     }
 
 
-    <div class="form-group-half">
+    <div class="form-group-half my-1">
         <button class="addAddress" (click)="isAddress=!isAddress ">Додати адресу</button>
     </div>
-    <div class="form-group-half">
+    <div class="form-group-half my-1">
         <button class="saveAddress" (click)="updateUserData()">Зберегти зміни</button>
     </div>
 

@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-info',
   standalone: true,
-
   imports: [RouterLink, RouterLinkActive, RouterOutlet, CommonModule],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'

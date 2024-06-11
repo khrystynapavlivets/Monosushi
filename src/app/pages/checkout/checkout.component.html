@@ -3,8 +3,8 @@
   <div class="basket__product">
     <div class="checkout-container">
       <div class="cart-product">
-        @if (basket.length > 0) { @for ( products of basket ; track $index) {
-
+        @if (basket.length > 0) {
+            @for ( products of basket ; track $index) {
         <div class="cart-product-item">
           <div class="cart-item-container">
             <a class="cart-product-img me-3">
@@ -13,7 +13,7 @@
                   '/product/' + products.category.path,
                   products.id
                 ]"
-                [src]="products.imagePath"
+              [src]="products.imagePath"
                 alt=""
             /></a>
           </div>
@@ -69,14 +69,14 @@
               <h3>Оберіть кількість приборів</h3>
             </div>
             <div class="form-input-wrapper">
-              <select class="form-input-select" name="" id="">
+              <select class="form-input-select" >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <select class="form-input-select" name="" id="">
+              <select class="form-input-select">
                 <option value="">Навчальні тримачі</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -95,7 +95,7 @@
             <div class="form-input-wrapper-check">
               <label
                 class="form-checkout-checkbox"
-                for="form-delivery-delivery"
+
               >
                 <input
                   type="checkbox"
@@ -110,7 +110,7 @@
               </label>
               <label
                 class="form-checkout-checkbox"
-                for="form-delivery-selfpickup"
+
               >
                 <input
                   type="checkbox"
@@ -177,8 +177,7 @@
             </label>
             <textarea
               class="form-checkout-comments"
-              name=""
-              id=""
+
               placeholder="Ваш коментар"
             ></textarea>
             <label class="form-checkout-checkbox" for="form-comments-kitchen">
@@ -191,8 +190,6 @@
             </label>
             <textarea
               class="form-checkout-comments"
-              name=""
-              id=""
               placeholder="Ваш коментар для кухні"
             ></textarea>
             <div class="delivery__map">

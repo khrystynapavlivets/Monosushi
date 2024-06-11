@@ -12,5 +12,6 @@ import { AuthorizationComponent } from './authorization.component';
     SharedModule,
     AuthorizationComponent,
   ],
+
 })
 export class AuthorizationModule {}

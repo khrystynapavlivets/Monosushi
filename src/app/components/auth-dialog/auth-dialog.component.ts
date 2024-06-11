@@ -71,6 +71,12 @@ export class AuthDialogComponent implements OnInit {
   ngOnInit(): void {
     this.initAuthForm();
     this.initRegisterForm();
+    this.registerForm.controls['password'].valueChanges.subscribe(() => {
+      this.checkConfirmedPassword();
+    });
+    this.registerForm.controls['confirmedPassword'].valueChanges.subscribe(() => {
+      this.checkConfirmedPassword();
+    });
   }
 
   initAuthForm(): void {
@@ -178,11 +184,19 @@ export class AuthDialogComponent implements OnInit {
 
   checkConfirmedPassword(): void {
     this.checkPassword = this.password.value === this.confirmed.value;
-    if (this.password.value !== this.confirmed.value) {
+    if (!this.checkPassword) {
       this.registerForm.controls["confirmedPassword"].setErrors({
-        matchError: "Password confirmation doesnt match",
+        matchError: "Password confirmation doesn't match",
       });
+    } else {
+      this.registerForm.controls["confirmedPassword"].setErrors(null);
     }
+    // this.checkPassword = this.password.value === this.confirmed.value;
+    // if (this.password.value !== this.confirmed.value) {
+    //   this.registerForm.controls["confirmedPassword"].setErrors({
+    //     matchError: "Password confirmation doesnt match",
+    //   });
+    // }
   }
 
   checkVisibilityError(control: string, name: string): boolean | null {

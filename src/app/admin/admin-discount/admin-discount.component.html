@@ -56,11 +56,11 @@
                 <tbody>
                     @for (discount of adminDiscounts; track discount.id ) {
                     <tr>
-                        <td>{{ currentDate | date:'dd.MM.YY' }}</td>
+                        <td>{{ currentDate | customDate}}</td>
                         <td>{{ discount.name }}</td>
                         <td>{{ discount.title }}</td>
                         <td>
-                            {{ discount.description | slice:0:70 }}
+                            {{ discount.description |cutText:70}}
 
                             @if(discount.description.length > 70){
                             <span>...</span>
@@ -71,7 +71,7 @@
                         </td>
                         <td>
                             <button (click)="editDiscount(discount)" type="button" class="btn btnEdDel fw-bold"
-                                [style]="{ 'color': primaryColor }" style="color: primaryColor ;">РЕДАГУВАТИ</button>
+                                [style]="{ 'color': primaryColor }" >РЕДАГУВАТИ</button>
                             <button [disabled]="editStatus" [style.cursor]="editStatus ? 'not-allowed' : 'pointer'"
                                 [style]="{ 'color': primaryColor }" (click)="deleteDiscount(discount)" type="button"
                                 class="btn btnEdDel fw-bold">ВИДАЛИТИ</button>

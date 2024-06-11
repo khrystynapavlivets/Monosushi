@@ -3,9 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import { ICategoryRequest, ICategoryResponse } from '../../interfaces/category/category.interface';
-import { response } from 'express';
 
-import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })

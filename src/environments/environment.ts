@@ -9,7 +9,8 @@ export const environment = {
   measurementId: "G-28DLS2Q56R"
   },
   production: false,
-  BACKEND_URL: 'http://localhost:3000'
+  BACKEND_URL: 'http://localhost:3000',
+
 };
 
  

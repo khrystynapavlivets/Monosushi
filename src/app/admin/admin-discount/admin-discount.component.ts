@@ -17,13 +17,21 @@ import {
   uploadBytesResumable,
 } from '@angular/fire/storage';
 import { IDiscountResponse } from '../../shared/interfaces/discount/discount.interface';
+import {CutTextPipe} from "../../shared/pipes/cut-text.pipe";
+import {CustomDatePipe} from "../../shared/pipes/custom-date.pipe";
 
 @Component({
-  selector: 'app-admin-discount',
+  selector: "app-admin-discount",
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './admin-discount.component.html',
-  styleUrl: './admin-discount.component.scss',
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CutTextPipe,
+    CustomDatePipe,
+  ],
+  templateUrl: "./admin-discount.component.html",
+  styleUrl: "./admin-discount.component.scss",
 })
 export class AdminDiscountComponent implements OnInit {
   public adminDiscounts!: IDiscountResponse[];
@@ -37,13 +45,13 @@ export class AdminDiscountComponent implements OnInit {
   private currentDiscountId = 0;
   public uploadPercent!: number;
   public isUploaded = false;
-  public primaryColor = '#b5d8f7';
+  public primaryColor = "#b5d8f7";
 
   constructor(
     private discountService: DiscountService,
     private fb: FormBuilder,
-    private storage: Storage
-  ) { }
+    private storage: Storage,
+  ) {}
 
   ngOnInit(): void {
     this.initDiscountForm();
@@ -106,7 +114,7 @@ export class AdminDiscountComponent implements OnInit {
   }
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadFile('images', file.name, file)
+    this.uploadFile("images", file.name, file)
       .then((data) => {
         this.discountForm.patchValue({
           imagePath: data,
@@ -121,10 +129,10 @@ export class AdminDiscountComponent implements OnInit {
   async uploadFile(
     folder: string,
     name: string,
-    file: File | null
+    file: File | null,
   ): Promise<string> {
     const path = `${folder}/${name}`;
-    let url = '';
+    let url = "";
     if (file) {
       try {
         const storageRef = ref(this.storage, path);
@@ -138,15 +146,15 @@ export class AdminDiscountComponent implements OnInit {
         console.error(e);
       }
     } else {
-      console.log('wrong format');
+      console.log("wrong format");
     }
     return Promise.resolve(url);
   }
 
   deleteImage(): void {
-    const task = ref(this.storage, this.valueByControl('imagePath'));
+    const task = ref(this.storage, this.valueByControl("imagePath"));
     deleteObject(task).then(() => {
-      console.log('File deleted');
+      console.log("File deleted");
       this.isUploaded = false;
       this.uploadPercent = 0;
       this.discountForm.patchValue({

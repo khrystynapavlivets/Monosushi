@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminDiscountComponent } from './admin-discount.component';
+import { HttpClientModule } from "@angular/common/http";
+import { provideRouter } from "@angular/router";
+import { Storage } from '@angular/fire/storage';
 
 describe('AdminDiscountComponent', () => {
   let component: AdminDiscountComponent;
@@ -8,7 +11,10 @@ describe('AdminDiscountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminDiscountComponent]
+      imports: [AdminDiscountComponent, HttpClientModule],
+      providers: [
+        { provide: Storage, useValue: {} },
+        provideRouter([]),]
     })
     .compileComponents();
     

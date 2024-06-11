@@ -12,7 +12,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './discount.component.scss'
 })
 export class DiscountComponent implements OnInit {
-
   public userDiscounts: Array<IDiscountResponse> = [];
 
   constructor(

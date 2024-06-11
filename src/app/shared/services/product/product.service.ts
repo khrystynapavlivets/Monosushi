@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { IProductsResponse, IProductsRequest } from '../../interfaces/product/product.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,7 @@ export class ProductService {
   private api = { products: `${this.url}/products` };
 
   constructor(private http: HttpClient) { }
-  
+
   getAll(): Observable<IProductsResponse[]> {
     return this.http.get<IProductsResponse[]>(this.api.products);
   }

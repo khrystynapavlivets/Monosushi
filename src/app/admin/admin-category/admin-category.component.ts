@@ -17,13 +17,15 @@ import {
   ref,
   uploadBytesResumable,
 } from '@angular/fire/storage';
+import { CutTextPipe } from '../../shared/pipes/cut-text.pipe';
 
 @Component({
-  selector: 'app-admin-category',
+  selector: "app-admin-category",
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './admin-category.component.html',
-  styleUrl: './admin-category.component.scss',
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, CutTextPipe],
+
+  templateUrl: "./admin-category.component.html",
+  styleUrl: "./admin-category.component.scss",
 })
 export class AdminCategoryComponent {
   public adminCategories: Array<ICategoryResponse> = [];
@@ -38,8 +40,8 @@ export class AdminCategoryComponent {
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private storage: Storage
-  ) { }
+    private storage: Storage,
+  ) {}
 
   ngOnInit(): void {
     this.initCategoryForm();
@@ -55,7 +57,7 @@ export class AdminCategoryComponent {
     this.categoryForm = this.fb.group({
       name: [null, Validators.required],
       path: [null, Validators.required],
-      imagePath: [, Validators.required],
+      imagePath: [null, Validators.required],
     });
   }
 
@@ -102,7 +104,7 @@ export class AdminCategoryComponent {
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadFile('images', file.name, file)
+    this.uploadFile("images", file.name, file)
       .then((data) => {
         this.categoryForm.patchValue({
           imagePath: data,
@@ -117,10 +119,10 @@ export class AdminCategoryComponent {
   async uploadFile(
     folder: string,
     name: string,
-    file: File | null
+    file: File | null,
   ): Promise<string> {
     const path = `${folder}/${name}`;
-    let url = '';
+    let url = "";
     if (file) {
       try {
         const storageRef = ref(this.storage, path);
@@ -134,15 +136,15 @@ export class AdminCategoryComponent {
         console.error(e);
       }
     } else {
-      console.log('wrong format');
+      console.log("wrong format");
     }
     return Promise.resolve(url);
   }
 
   deleteImage(): void {
-    const task = ref(this.storage, this.valueByControl('imagePath'));
+    const task = ref(this.storage, this.valueByControl("imagePath"));
     deleteObject(task).then(() => {
-      console.log('File deleted');
+      console.log("File deleted");
       this.isUploaded = false;
       this.uploadPercent = 0;
       this.categoryForm.patchValue({

@@ -43,26 +43,12 @@
     margin: 10px auto;
   }
 }
-//.form-group {
-//  width: 100%;
-//}
-//
-//.form-group-half {
-//  width: 49% ;
-//  @include respond(mobile) {
-//    width: 100%;
-//  }
-//}
-//
-//.mat-form-field {
-//  width: 100%;
-//}
 
 .addAddress {
   width: 200px;
   height: 60px;
   font-size: 18px;
-  margin: 15px 0;
+  margin: 10px 0;
   @extend %btn__admin;
   @include respond(mobile) {
     width: 150px;

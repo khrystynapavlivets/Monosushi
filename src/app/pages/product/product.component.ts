@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProductsResponse } from '../../shared/interfaces/product/product.interface';
+import { HttpClient } from "@angular/common/http";
 
 
 @Component({
@@ -23,22 +24,25 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public  http: HttpClient
+    
   ) {
     this.eventSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.loadProducts();
       }
-    })
+    });
   }
 
-
-  ngOnInit(): void { }
+  ngOnInit(
+  ): void { }
 
   loadProducts(): void {
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
-    this.productService.getAllByCategory(categoryName).subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllByCategory(categoryName).subscribe({
+      next: (data) => this.userProducts = data,
+        error: (err) => console.error('Error fetching products', err)
     })
   }
   ngOnDestroy(): void {

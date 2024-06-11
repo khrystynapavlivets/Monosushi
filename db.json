@@ -17,25 +17,25 @@
   ],
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "name": "роли",
       "path": "rolls",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4d7b63fd-2632-4513-8944-ed6e645bdadc"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "сети",
       "path": "setu",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=51caa737-6b38-4b9b-8bad-3a4b2a2e3ae7"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "напої",
       "path": "drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=9b50f013-9a56-4557-bda9-81e351b528a5"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "соуси",
       "path": "sauces",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monoshushi-47651.appspot.com/o/images%2Ficon.svg?alt=media&token=23168d11-92ff-4300-a54a-040b0fbea597"

@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +15,7 @@ export class DiscountService {
 
   constructor(private http: HttpClient) { }
 
+
   getAll(): Observable<IDiscountResponse[]> {
     return this.http.get<IDiscountResponse[]>(this.api.discounts);
   }
@@ -23,7 +23,6 @@ export class DiscountService {
   getOne(id: number): Observable<IDiscountResponse> {
     return this.http.get<IDiscountResponse>(`${this.api.discounts}/${id}`);
   }
-
 
   create(discount: IDiscountRequest): Observable<IDiscountResponse> {
     return this.http.post<IDiscountResponse>(this.api.discounts, discount);

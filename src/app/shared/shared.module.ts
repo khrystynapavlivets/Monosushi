@@ -29,14 +29,14 @@ import { CommonModule } from '@angular/common';
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+
     CommonModule,
   ],
   exports: [
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+
     CommonModule,
   ],
   providers: [MatMenuTrigger]

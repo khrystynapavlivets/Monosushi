@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-admin',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, HttpClientModule],
+  providers: [Storage],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',
 

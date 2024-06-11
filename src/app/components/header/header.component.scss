@@ -38,9 +38,8 @@ header {
         width: 170px;
         height: 103px;
         padding: 3px;
-        border: 10px solid $primary;
         border-image-repeat: stretch;
-        border-color: $primary;
+        border: 10px solid $primary;
         background-color: $primary;
 
         img {
@@ -133,7 +132,6 @@ header {
         background-color: #fff;
         border-radius: 0 0 10px 10px;
         font-family: $main_font;
-
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         z-index: 1000;
 
@@ -195,6 +193,5 @@ header {
         .btn {
             background-color: $primary;
         }
-
     }
 }

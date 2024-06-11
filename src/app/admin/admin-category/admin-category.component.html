@@ -57,8 +57,8 @@
                     <tr>
                         <td>{{ category.id }}</td>
                         <td>
-                            {{ category.name | slice : 0 : 70 }}
-
+<!--                            {{ category.name | slice : 0 : 70 }}-->
+                            {{ category.name | cutText:70 }}
                             @if(category.name.length > 70){
                             <span>...</span>
                             }
@@ -72,7 +72,7 @@
                         <td>
                             <button (click)="editCategory(category)" (click)="AddCategoryForm()" type="button"
                                 class="btn btnEdDel fw-bold" [style]="{ color: primaryColor }"
-                                style="color: primaryColor">
+                                >
                                 РЕДАГУВАТИ
                             </button>
                             <button [disabled]="editStatus" [style.cursor]="editStatus ? 'not-allowed' : 'pointer'"
