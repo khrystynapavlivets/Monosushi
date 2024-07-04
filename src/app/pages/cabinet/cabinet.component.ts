@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../../shared/services/account/account.service';
-
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-cabinet',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet ],
   templateUrl: './cabinet.component.html',
   styleUrl: './cabinet.component.scss'
 })
@@ -21,9 +21,9 @@ export class CabinetComponent implements OnInit {
   }
 
   signOut(): void {
-    this.router.navigate(['/']);
-    localStorage.removeItem('currentUser');
-    this.accountService.isUserLogin$.next(true);
+    this.router.navigate(['/']).then(() => {
+      localStorage.removeItem('currentUser');
+      this.accountService.isUserLogin$.next(true);
+    });
   }
-
 }

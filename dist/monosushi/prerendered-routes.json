@@ -1,0 +1,21 @@
+{
+  "routes": [
+    "/",
+    "/about",
+    "/admin",
+    "/admin/category",
+    "/admin/discount",
+    "/admin/order",
+    "/admin/product",
+    "/auth",
+    "/cabinet",
+    "/checkout",
+    "/contact",
+    "/delivery",
+    "/discount",
+    "/news",
+    "/offerta",
+    "/partners",
+    "/payment"
+  ]
+}

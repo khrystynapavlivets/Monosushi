@@ -24,9 +24,9 @@ export class DiscountComponent implements OnInit {
   }
 
   getDiscounts(): void {
-    this.discountService.getAll().subscribe(data => {
-      this.userDiscounts = data;
-    })
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.userDiscounts = data as IDiscountResponse[];
+    });
   }
 
 }

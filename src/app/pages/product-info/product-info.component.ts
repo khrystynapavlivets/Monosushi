@@ -30,11 +30,14 @@ export class ProductInfoComponent implements OnInit {
   }
 
   loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.productService.getOne(id).subscribe(data => {
-      this.currentProduct = data;
-    })
+    const ID = this.activatedRoute.snapshot.paramMap.get('id');
+    this.productService
+      .getOneFirebase(ID as string)
+      .subscribe((data) => {
+        this.currentProduct = data as IProductsResponse;
+      });
   }
+
 
   productCount(product: IProductsResponse, value: boolean): void {
     if (value) {

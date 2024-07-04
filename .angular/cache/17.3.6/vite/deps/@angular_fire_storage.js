@@ -1,45 +1,52 @@
 import {
   AuthInstances
-} from "./chunk-3RRXFFN4.js";
+} from "./chunk-SU7GALYC.js";
 import {
-  Component,
   FirebaseApp,
   FirebaseApps,
+  VERSION,
+  ɵAngularFireSchedulers,
+  ɵAppCheckInstances,
+  ɵgetAllInstancesOf,
+  ɵgetDefaultInstanceOf,
+  ɵzoneWrap
+} from "./chunk-QZI65PD7.js";
+import {
+  Component,
   FirebaseError,
   SDK_VERSION,
-  VERSION,
   _getProvider,
   _registerComponent,
   createMockUserToken,
   getApp,
   getDefaultEmulatorHostnameAndPort,
   getModularInstance,
-  registerVersion,
-  ɵAngularFireSchedulers,
-  ɵAppCheckInstances,
-  ɵgetAllInstancesOf,
-  ɵgetDefaultInstanceOf,
-  ɵzoneWrap
-} from "./chunk-DBIDSFPL.js";
+  registerVersion
+} from "./chunk-Z26EYXTV.js";
 import {
   InjectionToken,
   Injector,
   NgModule,
   NgZone,
   Optional,
+  makeEnvironmentProviders,
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-L5RGIME6.js";
+} from "./chunk-5J5M3JFC.js";
+import "./chunk-AHCYN2QL.js";
+import "./chunk-663X6QEZ.js";
 import {
   Observable,
-  __async,
   concatMap,
   distinct,
   from,
   map,
   timer
-} from "./chunk-MD2JTI2T.js";
+} from "./chunk-UFRF26CS.js";
+import {
+  __async
+} from "./chunk-LJ4VCL4A.js";
 
 // node_modules/@firebase/storage/dist/index.esm2017.js
 var DEFAULT_HOST = "firebasestorage.googleapis.com";
@@ -2450,7 +2457,7 @@ var FirebaseStorageImpl = class {
   }
 };
 var name = "@firebase/storage";
-var version = "0.12.4";
+var version = "0.12.6";
 var STORAGE_TYPE = "storage";
 function getBytes(ref3, maxDownloadSizeBytes) {
   ref3 = getModularInstance(ref3);
@@ -2649,24 +2656,22 @@ var StorageModule = class _StorageModule {
   }], () => [], null);
 })();
 function provideStorage(fn, ...deps) {
-  return {
-    ngModule: StorageModule,
-    providers: [{
-      provide: PROVIDED_STORAGE_INSTANCES,
-      useFactory: storageInstanceFactory(fn),
-      multi: true,
-      deps: [
-        NgZone,
-        Injector,
-        ɵAngularFireSchedulers,
-        FirebaseApps,
-        // Defensively load Auth first, if provided
-        [new Optional(), AuthInstances],
-        [new Optional(), ɵAppCheckInstances],
-        ...deps
-      ]
-    }]
-  };
+  registerVersion("angularfire", VERSION.full, "gcs");
+  return makeEnvironmentProviders([DEFAULT_STORAGE_INSTANCE_PROVIDER, STORAGE_INSTANCES_PROVIDER, {
+    provide: PROVIDED_STORAGE_INSTANCES,
+    useFactory: storageInstanceFactory(fn),
+    multi: true,
+    deps: [
+      NgZone,
+      Injector,
+      ɵAngularFireSchedulers,
+      FirebaseApps,
+      // Defensively load Auth first, if provided
+      [new Optional(), AuthInstances],
+      [new Optional(), ɵAppCheckInstances],
+      ...deps
+    ]
+  }]);
 }
 var fromTask2 = ɵzoneWrap(fromTask, true);
 var percentage2 = ɵzoneWrap(percentage, true);

@@ -35,12 +35,21 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { }
 
+  // loadProducts(): void {
+  //   const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
+  //   this.productService.getAllByCategoryFirebase(categoryName).subscribe(data => {
+  //     this.userProducts = data;
+  //   })
+  // }
+
   loadProducts(): void {
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
-    this.productService.getAllByCategory(categoryName).subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllByCategoryFirebase(categoryName).then(data => {
+      this.userProducts = data as IProductsResponse[];
     })
   }
+
+  
   ngOnDestroy(): void {
     this.eventSubscription.unsubscribe();
   }

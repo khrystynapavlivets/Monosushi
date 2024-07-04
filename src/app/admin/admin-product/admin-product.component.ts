@@ -25,8 +25,7 @@ export class AdminProductComponent {
   public uploadPercent = 0;
   public isUploaded = false;
   public isOpen = false;
-  // private currentCategoryId = 0;
-  private currentProductId = 0;
+  private currentProductId!: number | string;
   public primaryColor = '#b5d8f7';
   public addProductForm = true;
 
@@ -35,7 +34,7 @@ export class AdminProductComponent {
     private categoryService: CategoryService,
     private productService: ProductService,
     private imageService: ImageService,
-    // private toastr: ToastrService
+    private toaster: ToastrService
   ) { }
 
 
@@ -59,8 +58,8 @@ export class AdminProductComponent {
   }
 
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
       this.productForm.patchValue({
         category: this.adminCategories[0].id
       })
@@ -68,27 +67,25 @@ export class AdminProductComponent {
   }
 
   loadProduct(): void {
-    this.productService.getAll().subscribe(data => {
-      this.adminProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.adminProducts = data as IProductsResponse[];
     })
   }
 
   addProduct(): void {
     if (this.editStatus) {
-      this.productService.update(this.productForm.value, this.currentProductId).subscribe(() => {
+      this.productService.updateFirebase(this.productForm.value, this.currentProductId as string).then(() => {
         this.loadProduct();
-        this.isOpen = false;
+        this.toaster.success('Product successfully updated');
+             this.isOpen = false;
         this.editStatus = false;
-        // this.toastr.success('Product successfully updated');
-
       })
+
     } else {
-      this.productService.create(this.productForm.value).subscribe(() => {
-        this.loadProduct();
+      this.productService.createFirebase(this.productForm.value).then(() => {
+        this.toaster.success('Product successfully created');
         this.isOpen = false;
         this.editStatus = false;
-       
-        // this.toastr.success('Product successfully created');
       })
     }
     this.editStatus = false;
@@ -115,9 +112,9 @@ export class AdminProductComponent {
   }
 
   deleteProduct(product: IProductsResponse): void {
-    this.productService.delete(product.id).subscribe(() => {
+    this.productService.deleteFirebase(product.id as string).then(() => {
       this.loadProduct();
-      // this.toastr.success('Product successfully deleted');
+      this.toaster.success('Product successfully deleted');
     })
   }
 

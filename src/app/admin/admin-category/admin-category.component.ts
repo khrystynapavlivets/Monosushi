@@ -17,6 +17,7 @@ import {
   ref,
   uploadBytesResumable,
 } from '@angular/fire/storage';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-category',
@@ -31,14 +32,15 @@ export class AdminCategoryComponent {
   public editStatus = false;
   public uploadPercent!: number;
   public isUploaded = false;
-  private currentCategoryId = 0;
+  private currentCategoryId!: number | string;
   public addCategoryForm = true;
   public primaryColor = '#b5d8f7';
 
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private storage: Storage
+    private storage: Storage,
+    private toaster: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -60,28 +62,28 @@ export class AdminCategoryComponent {
   }
 
   loadCategories(): void {
-    this.categoryService.getAll().subscribe((data) => {
-      this.adminCategories = data;
-    });
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
+    })
   }
 
   addCategory(): void {
     if (this.editStatus) {
-      this.categoryService
-        .update(this.categoryForm.value, this.currentCategoryId)
-        .subscribe(() => {
-          this.loadCategories();
-        });
-    } else {
-      this.categoryService.create(this.categoryForm.value).subscribe(() => {
+      this.categoryService.updateFirebase(this.categoryForm.value, this.currentCategoryId as string).then(() => {
         this.loadCategories();
-      });
+        this.toaster.success('Category successfully updated');
+      })
+    } else {
+      this.categoryService.createFirebase(this.categoryForm.value).then(() => {
+        this.toaster.success('Category successfully created');
+      })
     }
     this.editStatus = false;
     this.categoryForm.reset();
     this.isUploaded = false;
     this.uploadPercent = 0;
   }
+
 
   editCategory(category: ICategoryResponse): void {
     this.categoryForm.patchValue({
@@ -95,9 +97,10 @@ export class AdminCategoryComponent {
   }
 
   deleteCategory(category: ICategoryResponse): void {
-    this.categoryService.delete(category.id).subscribe(() => {
+    this.categoryService.deleteFirebase(category.id as string).then(() => {
       this.loadCategories();
-    });
+      this.toaster.success('Category successfully deleted');
+    })
   }
 
   upload(event: any): void {

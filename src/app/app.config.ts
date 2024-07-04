@@ -23,10 +23,11 @@ export const appConfig: ApplicationConfig = {
   provideAnimations(),
   provideClientHydration(),
   provideHttpClient(withFetch()),
-  importProvidersFrom(provideFirebaseApp(() => initializeApp(environment.firebase))),
-  importProvidersFrom(provideStorage(() => getStorage())),
+  provideFirebaseApp(() => initializeApp(environment.firebase)),
+  provideStorage(() => getStorage()),
   importProvidersFrom(ToastrModule.forRoot() as ModuleWithProviders<ToastrModule>),
-  importProvidersFrom(provideFirestore(() => getFirestore()) as ModuleWithProviders<FirestoreModule>),
-  importProvidersFrom(provideAuth(() => getAuth()) as ModuleWithProviders<FirestoreModule>), provideAnimationsAsync(), provideAnimationsAsync()
+  provideFirestore(() => getFirestore()),
+  provideAuth(() => getAuth()),
+  provideAnimationsAsync(), provideAnimationsAsync()
   ]
 };

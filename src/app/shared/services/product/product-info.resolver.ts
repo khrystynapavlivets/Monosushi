@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
-  Router, Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { environment } from '../../../../environments/environment';
-import { IProductsResponse } from '../../../shared/interfaces/product/product.interface';
-import { ProductService } from '../product/product.service';
+  ActivatedRouteSnapshot,
+  Resolve,
+} from "@angular/router";
+import { Observable, map } from 'rxjs';
+import { IProductsResponse } from '../../interfaces/product/product.interface';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +15,20 @@ export class ProductInfoResolver implements Resolve<IProductsResponse> {
 
   constructor(private productService: ProductService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProductsResponse> {
-    return this.productService.getOne(Number(route.paramMap.get('id'))); 
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | IProductsResponse
+    | Observable<IProductsResponse>
+    | Promise<IProductsResponse> {
+    const PRODUCT_ID = route.paramMap.get('id');
+    return this.productService.getOneFirebase(PRODUCT_ID as string).pipe(
+      map((data) => {
+        console.log('from RESOLVER', data)
+        return data as IProductsResponse;
+      })
+    );
   }
 }
-
 

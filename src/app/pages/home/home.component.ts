@@ -4,6 +4,8 @@ import { ProductService } from '../../shared/services/product/product.service';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DiscountService } from '../../shared/services/discount/discount.service';
 import { IDiscountResponse } from '../../shared/interfaces/discount/discount.interface';
+import { OrderService } from '../../shared/services/order/order.service';
+
 
 @Component({
   selector: 'app-home',
@@ -15,10 +17,12 @@ import { IDiscountResponse } from '../../shared/interfaces/discount/discount.int
 export class HomeComponent {
   public userProducts: Array<IProductsResponse> = [];
   public discount: Array<IDiscountResponse> = [];
-  orderService: any;
+
 
   constructor(private productService: ProductService,
     private discountService: DiscountService,
+    private orderService: OrderService,
+
   ) { }
 
   ngOnInit(): void {
@@ -27,15 +31,16 @@ export class HomeComponent {
   }
 
   getDiscounts(): void {
-    this.productService.getAll().subscribe(data => {
-      this.userProducts = data;
-    })
-  }
-  loadDiscounts(): void {
-    this.discountService.getAll().subscribe((data) => {
-      this.discount = data;
+    this.productService.getAllFirebase().subscribe((data) => {
+      this.userProducts = data as IProductsResponse[];
     });
   }
+  loadDiscounts(): void {
+    this.discountService.getAllFirebase().subscribe((data) => {
+      this.discount = data as IDiscountResponse[];
+    });
+  }
+
   productCount(product: IProductsResponse, value: boolean): void {
     if (value) {
       ++product.count;
